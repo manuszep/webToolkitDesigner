@@ -1,0 +1,45 @@
+.designer-demo {
+    &__element {
+        padding: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 3rem .5rem 0;
+
+        &--neg {
+            background: #2425aa;
+        }
+    }
+
+    &__code {
+        background: #333;
+        color: #ddd;
+        display: block;
+        margin: 0 .5rem 3rem;
+        position: relative;
+
+        code {
+            white-space: pre;
+            overflow-x: auto;
+            display: block;
+            padding: 3rem;
+        }
+    }
+
+    &__copy {
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+        color: #999;
+        transition: all .3s;
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}

@@ -1,0 +1,414 @@
+@import "../Color/Color";
+@import "../MediaQueries/MediaQueries";
+
+
+/*
+    Variables
+ */
+
+$font-family-sans-serif: 'Source Sans Pro', Arial, sans-serif !default;
+$font-family-serif: 'PT Serif', serif !default;
+
+$font-size-base-md: 16px !default;
+$font-size-base-sm: 14px !default;
+$font-size-base-xs: 13px !default;
+$font-weight-base: 400 !default;
+$font-line-height-base: 1.45 !default;
+$font-color-base: $axa-color-text-gray !default;
+
+$type-link-text-decoration: none !default;
+$type-link-hover-text-decoration: underline !default;
+
+$type-legibility-max-width: 45rem !default;
+
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+
+/*
+    Mixins
+ */
+
+@mixin typo-78-serif() {
+    font-family: $font-family-serif;
+    font-size: 4.875rem;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+    line-height: 1.051;
+}
+
+@mixin typo-78() {
+    font-family: $font-family-sans-serif;
+    font-size: 4.875rem;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+    line-height: 1.051;
+}
+
+@mixin typo-62-serif() {
+    font-family: $font-family-serif;
+    font-size: 3.875rem;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    line-height: 1.161;
+}
+
+@mixin typo-62() {
+    font-family: $font-family-sans-serif;
+    font-size: 3.875rem;
+    font-weight: bold;
+    letter-spacing: -0.01em;
+    line-height: 1.161;
+}
+
+@mixin typo-48-serif() {
+    font-family: $font-family-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    line-height: 1.125;
+}
+
+@mixin typo-48() {
+    font-family: $font-family-sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.01em;
+    line-height: 1.125;
+}
+
+
+@mixin typo-36() {
+    font-family: $font-family-sans-serif;
+    font-size: 2.25rem;
+    font-weight: bold;
+    letter-spacing: 0.01em;
+    line-height: 1.125;
+}
+
+
+@mixin typo-36-serif() {
+    font-family: $font-family-serif;
+    font-size: 2.25rem;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    line-height: 1.17;
+}
+
+
+@mixin typo-28() {
+    font-family: $font-family-sans-serif;
+    font-size: 1.75rem;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    line-height: 1.143;
+}
+
+
+@mixin typo-28-serif() {
+    font-family: $font-family-serif;
+    font-size: 1.75rem;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    line-height: 1.143;
+}
+
+@mixin typo-24 {
+    font-family: $font-family-sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+@mixin typo-24-serif {
+    font-family: $font-family-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    line-height: 1.17;
+}
+
+@mixin typo-20 {
+    font-family: $font-family-sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+}
+
+@mixin typo-18 {
+    font-family: $font-family-sans-serif;
+    font-size: 1.125rem;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+}
+
+@mixin typo-16 {
+    font-family: $font-family-sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+}
+
+@mixin typo-14 {
+    font-family: $font-family-sans-serif;
+    font-size: .875rem;
+    letter-spacing: 0.08em;
+}
+
+@mixin typo-13 {
+    font-family: $font-family-sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+
+/*
+    Styles
+ */
+
+@mixin type-styles {
+    html, body {
+        font-size: $font-size-base-xs;
+
+        @include media-breakpoint-up(md) {
+            font-size: $font-size-base-md;
+        }
+    }
+    body {
+        font-family: $font-family-sans-serif;
+        font-weight: $font-weight-base;
+        line-height: $font-line-height-base;
+        // Go easy on the eyes and use something other than `#000` for text
+        color: $font-color-base;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        margin-bottom: .5rem;
+    }
+
+    h1, .h1 {
+        @include typo-78;
+    }
+
+    h2, .h2 {
+        @include typo-62;
+    }
+
+    h3, .h3 {
+        @include typo-48;
+    }
+
+    h4, .h4 {
+        @include typo-28();
+    }
+
+    h5, .h5 {}
+
+    h6, .h6 {}
+
+    p {
+        @include typo-18();
+        max-width: $type-legibility-max-width;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    ul {
+        @include typo-18();
+    }
+
+    .lead {
+        @include typo-20();
+    }
+
+    abbr[title], abbr[data-original-title] {
+        cursor: help;
+    }
+
+    address {
+        margin-bottom: 1rem;
+        font-style: normal;
+        line-height: inherit;
+    }
+
+    ol, ul, dl {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    ol ol, ul ul, ol ul, ul ol {
+        margin-bottom: 0;
+    }
+
+    dt {
+        font-weight: 700;
+    }
+
+    dd {
+        margin-bottom: .5rem;
+        margin-left: 0;
+    }
+
+    blockquote {
+        margin: 0 0 1rem;
+    }
+
+    a {
+        color: $axa-color-text-link-normal;
+        text-decoration: $type-link-text-decoration;
+
+        &:hover, &:focus {
+            color: $axa-color-text-link-normal-hover;
+            text-decoration: $type-link-hover-text-decoration;
+        }
+
+        &:not([href]):not([tabindex]) {
+            color: inherit;
+            text-decoration: none;
+
+            &:hover, &:focus {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            &:focus {
+                outline: 0;
+            }
+        }
+    }
+
+    pre {
+        // Remove browser default top margin
+        margin-top: 0;
+        // Reset browser default of `1em` to use `rem`s
+        margin-bottom: 1rem;
+        // Normalize v4 removed this property, causing `<pre>` content to break out of wrapping code snippets
+        overflow: auto;
+    }
+
+    .typo-78-serif, .typo-main-title-editorial {
+        @include typo-78-serif;
+    }
+
+    .typo-78, .typo-main-title {
+        @include typo-78;
+    }
+
+    .typo-62-serif, .typo-title-l2-editorial {
+        @include typo-62-serif;
+    }
+
+    .typo-62, .typo-title-l2 {
+        @include typo-62;
+    }
+
+    .typo-48-serif, .typo-title-l3-editorial {
+        @include typo-48-serif;
+    }
+
+    .typo-48, .typo-title-l3 {
+        @include typo-48;
+    }
+
+    .typo-36, .typo-title-menu, .typo-footer-l2 {
+        @include typo-36();
+    }
+
+    .typo-36-serif {
+        @include typo-36-serif();
+    }
+
+    .typo-28, .typo-title-l4, .typo-footer-l1 {
+        @include typo-28();
+    }
+
+    .typo-28-serif, .typo-title-l4-editorial {
+        @include typo-28-serif();
+    }
+
+    .typo-24, .typo-item-highlight, .typo-menu-item {
+        @include typo-24;
+    }
+
+    .typo-24-serif {
+        @include typo-24-serif;
+    }
+
+    .typo-20, .typo-story-text {
+        @include typo-20();
+    }
+
+    .typo-18, .typo-body-text, .typo-list-body-text, .typo-bold-text {
+        @include typo-18();
+    }
+
+    .typo-16, .typo-footer-main, .typo-footer-sub, .typo-button {
+        @include typo-16();
+    }
+
+    .typo-14, .typo-article-header, .typo-link {
+        @include typo-14;
+    }
+
+    .typo-13, .typo-navigation, .typo-small-button, .typo-header-bar, .typo-footer-legal {
+        @include typo-13;
+    }
+
+    .typo-title-menu, .typo-footer-l2 {
+        text-transform: uppercase;
+    }
+
+    .typo-footer-l1 {
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .typo-menu-item {
+        text-transform: uppercase;
+    }
+
+    .typo-bold-text {
+        font-weight: bold;
+    }
+
+    .typo-footer-main {
+        font-weight: bold;
+    }
+
+    .typo-footer-sub {
+        line-height: 2.063;
+        letter-spacing: 0.01em;
+    }
+
+    .typo-button {
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .typo-article-header {
+        text-transform: uppercase;
+    }
+
+    .typo-link {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .typo-navigation, .typo-small-button {
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .typo-header-bar {
+        text-transform: uppercase;
+    }
+}
+

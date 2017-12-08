@@ -1,0 +1,398 @@
+@import "../Color/Color";
+@import "../Type/Type";
+@import "../MediaQueries/MediaQueries";
+
+/*
+    Variables
+ */
+$form-input-width: 18.5rem !default;
+$form-input-height: 3.125rem !default;
+
+$form-placeholder-color: $axa-color-dusty-gray !default;
+
+$form-focus-color: $axa-color-azure !default;
+
+$form-label-margin-bottom-xs: 3px !default;
+$form-label-margin-bottom-sm: 8px !default;
+$form-label-color: $axa-color-mine-shaft !default;
+
+$form-padding-xs: 0 30px !default;
+$form-padding-sm: 0 70px !default;
+$form-padding-md: 0 80px !default;
+$form-padding-lg: 0 95px !default;
+$form-background: $axa-color-alabaster !default;
+
+$form-separation-border-color: $axa-color-silver !default;
+
+$form-title-margin-top-xs: 30px !default;
+$form-title-margin-top-xs: 45px !default;
+$form-title-margin-top-md: 60px !default;
+$form-title-margin-bottom-xs: 12px !default;
+$form-title-margin-bottom-xs: 20px !default;
+$form-title-padding-bottom-xs: 10px !default;
+$form-title-padding-bottom-xs: 20px !default;
+
+$form-fieldset-margin-top-xs: 15px !default;
+$form-fieldset-margin-top-sm: 25px !default;
+
+$form-legend-font-weight: 500 !default;
+$form-legend-color: $axa-color-scorpion !default;
+$form-legend-background: $axa-color-alabaster !default;
+
+$form-legend-margin-left-xs: 15px;
+$form-legend-margin-left-sm: 30px;
+$form-legend-padding-left-xs: 15px;
+$form-legend-padding-left-sm: 20px;
+$form-legend-padding-right-xs: 15px;
+$form-legend-padding-right-sm: 20px;
+$form-legend-margin-bottom-sm: 20px;
+
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+
+/*
+    Mixins
+ */
+
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+
+/*
+    Styles
+ */
+
+
+@mixin form-styles {
+    .multi-form-group {
+        @include media-breakpoint-up(sm) {
+            display: flex;
+        }
+
+        & > .form-group + .form-group {
+            @include media-breakpoint-up(sm) {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .form-control {
+        @include typo-18();
+        max-width: $form-input-width;
+        height: $form-input-height; // IE needs some fixed heights
+
+        &:hover {
+            border-color: $form-focus-color;
+        }
+
+        &:focus {
+            color: $form-focus-color;
+            border-color: $form-focus-color;
+        }
+
+        &::placeholder {
+            color: $form-placeholder-color;
+        }
+    }
+
+    .form-group label {
+        @include typo-18();
+        margin-bottom: $form-label-margin-bottom-xs;
+        color: $form-label-color;
+
+        @include media-breakpoint-up(sm) {
+            margin-bottom: $form-label-margin-bottom-sm;
+        }
+    }
+
+    .form {
+        padding: $form-padding-xs;
+        background-color: $form-background;
+        overflow: hidden; // do not let margin get outside the dark background
+
+        @include media-breakpoint-up(sm) {
+            padding: $form-padding-sm;
+        }
+
+        @include media-breakpoint-up(md) {
+            padding: $form-padding-md;
+        }
+
+        @include media-breakpoint-up(lg) {
+            padding: $form-padding-lg;
+        }
+
+        &-title {
+            @include typo-24-serif;
+            border-bottom: 1px solid $form-separation-border-color;
+            margin-top: $form-title-margin-top-xs;
+            margin-bottom: $form-title-margin-bottom-xs;
+            padding-bottom: $form-title-padding-bottom-xs;
+
+            @include media-breakpoint-up(sm) {
+                @include typo-36-serif;
+                margin-top: $form-title-margin-top-sm;
+                margin-bottom: $form-title-margin-bottom-sm;
+                padding-bottom: $form-title-padding-bottom-sm;
+            }
+
+            @include media-breakpoint-up(md) {
+                margin-top: $form-title-margin-top-md;
+            }
+        }
+
+        fieldset {
+            border-top: 1px solid $form-separation-border-color;
+            margin-top: $form-fieldset-margin-top-xs;
+
+            @include media-breakpoint-up(sm) {
+                margin-top: $form-fieldset-margin-top-sm;
+
+            }
+
+            legend {
+                @include typo-16;
+                font-weight: $form-legend-font-weight;
+                color: $form-legend-color;
+                background-color: $form-legend-background;
+                width: auto;
+                margin-left: $form-legend-margin-left-xs;
+                padding-left: $form-legend-padding-left-xs;
+                padding-right: $form-legend-padding-right-xs;
+
+                @include media-breakpoint-up(sm) {
+                    @include typo-20;
+                    margin-left: $form-legend-margin-left-sm;
+                    padding-left: $form-legend-padding-left-sm;
+                    padding-right: $form-legend-padding-right-sm;
+                    margin-bottom: $form-legend-margin-bottom-sm;
+                }
+            }
+        }
+    }
+
+    // hack: more specifity than ".form-group label" to override typo-18 to typo-16
+    .form-group label.custom-checkbox {
+        @include typo-16();
+    }
+
+    // TODO: disabled state
+    .custom-checkbox {
+        display: block;
+        margin-bottom: 7px;
+
+        user-select: none;
+
+        .custom-control-indicator {
+            width: 16px;
+            height: 16px;
+
+            margin-right: 10px;
+
+            background: $color-white;
+
+            border: 1px solid $color-dusty-gray;
+        }
+
+        .custom-control-input:focus ~ .custom-control-indicator,
+            // TODO: sticky state on iOS: shall we remove hover therefore?! see wtfforms.com
+        &:hover .custom-control-input:not(:disabled) ~ .custom-control-indicator {
+            border-color: $color-azure;
+            box-shadow: none; // reset bootstrap
+        }
+
+        .custom-control-input:checked:not(:disabled) ~ .custom-control-indicator, // :not(:disabled) is used to give this more specifity than the :hover effect
+        .custom-control-input:active:not(:disabled) ~ .custom-control-indicator {
+            background: $color-azure;
+            background-image: none; // reset bootstrap
+            border-color: $color-azure;
+        }
+    }
+
+    .custom-radio1-wrapper {
+        display: flex;
+    }
+
+    .custom-radio.radio1 {
+        padding: 0; // reset bootstrap
+
+        margin-right: 1px;
+
+        .custom-control-indicator {
+            display: none;
+        }
+
+        .custom-control-description {
+            display: block;
+
+            padding: 4px 20px;
+
+            // @include typo-18; // TODO: should be typo-12
+            // @extend .typo-13; // TODO: use mixin instead of @extend. Should be typo-12 (doesn't exist tough in web guidelines)
+            font-family: $font-family-sans-serif;
+            font-size: $custom-control-description-font-size;
+            font-weight: $font-small-semibold--weight;
+            letter-spacing: 0.08em;
+
+            color: $color-mineshaft;
+            text-transform: uppercase;
+            cursor: pointer;
+
+            background: $color-mercury;
+            border: 1px solid $color-dusty-gray;
+
+            border-bottom-width: 2px;
+
+            @include media-breakpoint-up(sm) {
+                padding-top: 9px;
+                padding-bottom: 8px;
+            }
+        }
+
+        .custom-control-input:focus ~ .custom-control-description,
+            // TODO: sticky state on iOS: shall we remove hover therefore?! see wtfforms.com
+        &:hover .custom-control-input:not(:disabled) ~ .custom-control-description {
+            color: $color-azure;
+
+            border-color: $color-azure;
+        }
+
+        .custom-control-input:checked:not(:disabled) ~ .custom-control-description, // :not(:disabled) is used to give this more specifity than the :hover effect
+        .custom-control-input:active:not(:disabled) ~ .custom-control-description {
+            background: white;
+
+            border-bottom-color: $color-azure;
+        }
+    }
+
+    .custom-radio.radio2 {
+        @include typo-18();
+        display: inline-flex;
+
+        padding: 0; // reset bootstrap
+
+        margin: 0 40px 0 0;
+
+        align-items: center;
+
+        line-height: 1; // vertical positioning
+
+        .custom-control-indicator {
+            position: static; // reset bootstrap
+
+            display: flex;
+
+            width: 16px;
+            height: 16px;
+
+            margin-right: 20px;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: white;
+
+            border: 1px solid $color-silver;
+            border-radius: 15px;
+
+            &::after {
+                display: block;
+
+                width: 6px; // TODO: just a guess
+                height: 6px;
+
+                border: 1px solid $color-silver;
+                border-radius: 50%;
+
+                content: '';
+            }
+        }
+
+        .custom-control-input:focus ~ .custom-control-indicator,
+            // TODO: sticky state on iOS: shall we remove hover therefore?! see wtfforms.com
+        &:hover .custom-control-input:not(:disabled) ~ .custom-control-indicator {
+            border-color: $color-azure;
+            box-shadow: none; // reset bootstrap
+
+            &::after {
+                background: $color-silver;
+
+                border-color: $color-azure;
+            }
+        }
+
+        .custom-control-input:checked:not(:disabled) ~ .custom-control-indicator, // :not(:disabled) is used to give this more specifity than the :hover effect
+        .custom-control-input:active:not(:disabled) ~ .custom-control-indicator {
+            background: none; // reset bootstrap
+
+            &::after {
+                background: $color-azure;
+
+                border-color: $color-azure;
+            }
+        }
+    }
+
+    .custom-select {
+        display: block;
+        max-width: $axa-input-width;
+        padding: 10px 60px 10px 20px;
+        line-height: 1.5;
+        color: #333333;
+        cursor: pointer;
+        background-color: #ffffff;
+        height: 50px;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%227%22%3E%0D%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%23999%22%20d%3D%22M9.754%201.451L5.573%205.756c-.322.331-.844.331-1.166%200L.226%201.451c-.322-.332-.322-.87%200-1.202.321-.331.844-.331%201.166%200L4.99%203.954%208.588.249c.322-.331.844-.331%201.166%200%20.322.332.322.87%200%201.202z%22%2F%3E%0D%0A%3C%2Fsvg%3E");
+        background-size: 12px 8px;
+        border: 1px solid #cccccc;
+        border-radius: 0;
+        outline: 0;
+
+        // TODO: sticky state on iOS: shall we remove hover therefore?! see wtfforms.com
+        /* Hover */
+        &:hover:not(:disabled),
+            /* Focus */
+        &:focus:not(:disabled),
+            /* Active/open */
+        &:active:not(:disabled) {
+            border-color: $color-azure;
+        }
+
+        .form-group.has-danger &,
+        &.custom-select-danger {
+            color: $brand-danger;
+
+            // TODO: sticky state on iOS: shall we remove hover therefore?! see wtfforms.com
+            /* Hover */
+            &:hover:not(:disabled),
+                /* Focus */
+            &:focus:not(:disabled),
+                /* Active/open */
+            &:active:not(:disabled) {
+                color: $color-mineshaft;
+                border-color: $brand-danger;
+            }
+        }
+    }
+
+    .custom-select-group {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        .custom-select + .custom-select {
+            margin-top: 5px;
+        }
+
+        @include media-breakpoint-up(sm) {
+            flex-direction: row;
+
+            .custom-select + .custom-select {
+                margin-top: 0;
+                margin-left: 10px;
+            }
+        }
+    }
+}
