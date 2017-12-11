@@ -10,7 +10,7 @@
 
             <div class="form-group" role="group">
                 <label>Label, link list (1 / line, comma separated)</label>
-                <textarea v-model="LINKS" class="form-control" placeholder="ex: #link_value, Display label"></textarea>
+                <textarea v-model="LINKS" class="form-control textarea-large" placeholder="ex: #link_value, Display label"></textarea>
             </div>
         </form>
 

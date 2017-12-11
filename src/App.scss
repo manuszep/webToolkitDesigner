@@ -1,26 +1,7 @@
-/*@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700";
-
-@import "components/Basics/Normalize.scss";
-@import "components/Type/Type";
-@import "components/Grid/Grid";
-@import "components/Button/Button";
-
-@include type-styles;
-@include grid-styles;
-@include button-styles;*/
-
 @import '~@axa/web-toolkit/scss/style';
 
-html, body {
-    height: 100%;
-}
+@import 'components/Basics/Html';
+@import 'components/Form/Form';
 
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-}
-
-.content-zone {
-    flex-grow: 1;
-}
+@include basics-html-styles;
+@include Form-styles;

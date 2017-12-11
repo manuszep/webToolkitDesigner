@@ -5,7 +5,7 @@
 
             <div class="form-group" role="group">
                 <label>Labels, Values (1 / line, comma separated)</label>
-                <textarea v-model="RADIO_LABELS" class="form-control" placeholder="ex: Button label, 0"></textarea>
+                <textarea v-model="RADIO_LABELS" class="form-control textarea-large" placeholder="ex: Button label, 0"></textarea>
             </div>
 
             <div class="form-group" >

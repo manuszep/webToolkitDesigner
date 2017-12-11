@@ -26,7 +26,7 @@
 
             <div class="form-group" >
                 <label for="text" >Write some poetry for the user</label>
-                <textarea v-model="ALERT_TEXT" id="text" placeholder="Roses are red, violets are blue, this website uses cookies to provide you some goodies" class="form-control"></textarea>
+                <textarea v-model="ALERT_TEXT" id="text" placeholder="Roses are red, violets are blue, this website uses cookies to provide you some goodies" class="form-control textarea-large"></textarea>
             </div>
 
             <div class="form-group" >
