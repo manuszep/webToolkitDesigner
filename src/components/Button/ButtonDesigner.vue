@@ -5,60 +5,17 @@
 
             <div class="form-group" role="group">
                 <label>My button is</label>
-                <div class="custom-radio1-wrapper">
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="BTN_TYPE" type="radio" class="custom-control-input" value="">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">A link</span>
-                    </label>
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="BTN_TYPE" type="radio" class="custom-control-input" value="button">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">An actual button</span>
-                    </label>
-                </div>
+                <Radio v-model="BTN_TYPE" :options="[{value: '', label: 'A link'}, {value: 'button', label:'An actual button'}]"/>
             </div>
 
             <div class="form-group" role="group">
-                <label>I want my button to be</label>
-                <div class="custom-radio1-wrapper">
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="BTN_SIZE" type="radio" class="custom-control-input" value="small">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Small</span>
-                    </label>
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="BTN_SIZE" type="radio" class="custom-control-input" value="">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Medium</span>
-                    </label>
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="BTN_SIZE" type="radio" class="custom-control-input" value="large">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Large</span>
-                    </label>
-                </div>
+                <label>My button is</label>
+                <Radio v-model="BTN_SIZE" :options="[{value: 'small', label: 'Small'}, {value: '', label: 'Medium'}, {value: 'large', label: 'Large'}]"/>
             </div>
 
             <div class="form-group" role="group">
-                <label>Which style ?</label>
-                <div class="custom-radio1-wrapper">
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="BTN_STYLE" type="radio" class="custom-control-input" value="axa">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Default</span>
-                    </label>
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="BTN_STYLE" type="radio" class="custom-control-input" value="ghost">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Ghost</span>
-                    </label>
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="BTN_STYLE" type="radio" class="custom-control-input" value="ghost-neg">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Ghost negative</span>
-                    </label>
-                </div>
+                <label>My button is</label>
+                <Radio v-model="BTN_STYLE" :options="[{value: 'axa', label: 'Default'}, {value: 'ghost', label: 'Ghost'}, {value: 'ghost-neg', label: 'Ghost negative'}]"/>
             </div>
 
             <div class="form-group" role="group">
@@ -151,12 +108,14 @@
 <script>
   import DesignerDemo from '@/components/DesignerDemo/DesignerDemo';
   import Btn from '@/components/Button/Button';
+  import Radio from '@/components/Form/Radio/Radio';
 
   export default {
     name: 'ButtonDesigner',
     components: {
       Btn: Btn,
       DesignerDemo: DesignerDemo,
+      Radio: Radio,
     },
     data() {
       return {

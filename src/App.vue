@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="page-wrapper">
     <header class="header">
 
       <div class="header-main">
@@ -25,7 +25,7 @@
           <nav id="overviewNav" class="nav float-xs-right hidden-sm-down" data-fade="search" data-target="#overviewSearch" data-in="fade-in-delayed-xs-up" data-out="fade-out-xs-up">
             <ul class="nav-list">
               <li class="nav-item">
-                <a href="#" class="nav-link">Generate elements</a>
+                <a href="/" class="nav-link">Generate elements</a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">Build a page</a>
@@ -37,7 +37,7 @@
       </div>
     </header>
 
-    <div class="container">
+    <div class="container content-zone">
       <router-view/>
     </div>
 
