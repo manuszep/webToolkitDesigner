@@ -19,6 +19,13 @@
 
             <Row
                 type="text"
+                label="Button label"
+                v-model="BTN_TEXT"
+                placeholder="I get it !"
+                id="btnlabel"></Row>
+
+            <Row
+                type="text"
                 label="Add a link to that button"
                 v-model="BTN_LINK"
                 placeholder="https://www.axa.com"
