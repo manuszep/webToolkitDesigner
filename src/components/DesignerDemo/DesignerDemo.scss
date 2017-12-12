@@ -1,14 +1,21 @@
 .designer-demo {
     &__element {
-        padding: 3rem;
+        margin: 3rem 0 0;
+        padding: 3rem 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 3rem .5rem 0;
+
+        /*padding: 3rem;
+        margin: 3rem .5rem 0;*/
 
         &--neg {
             background: #2425aa;
         }
+    }
+
+    &__full {
+        flex-grow: 1;
     }
 
     &__code {

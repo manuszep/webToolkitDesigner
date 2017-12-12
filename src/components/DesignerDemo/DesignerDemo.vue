@@ -1,7 +1,9 @@
 <template>
-    <div class="designer-demo">
+    <div class="designer-demo unwrap">
         <div :class="designerClass" ref="demoWrapper">
-            <slot></slot>
+            <div :class="getChildClass()">
+                <slot></slot>
+            </div>
         </div>
 
         <div class="designer-demo__code">
@@ -18,6 +20,10 @@
     name: 'DesignerDemo',
     props: {
       neg: {
+        type: Boolean,
+        required: false,
+      },
+      fullWidth: {
         type: Boolean,
         required: false,
       },
@@ -50,6 +56,9 @@
           /**/
         }
         document.body.removeChild(textArea);
+      },
+      getChildClass() {
+        return (this.fullWidth) ? 'designer-demo__full' : null;
       },
     },
     updated() {

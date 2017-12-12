@@ -6,6 +6,7 @@ import AlertDesigner from '@/components/Alert/AlertDesigner';
 import RadioDesigner from '@/components/Form/Radio/RadioDesigner';
 import CheckboxDesigner from '@/components/Form/Checkbox/CheckboxDesigner';
 import SelectDesigner from '@/components/Form/Select/SelectDesigner';
+import BannerDesigner from '@/components/Banner/BannerDesigner';
 import TableOfContentDesigner from '@/components/TableOfContent/TableOfContentDesigner';
 
 Vue.use(Router);
@@ -34,6 +35,9 @@ export default new Router({
     }, {
       path: '/TableOfContent',
       component: TableOfContentDesigner,
+    }, {
+      path: '/Banner',
+      component: BannerDesigner,
     },
   ],
 });

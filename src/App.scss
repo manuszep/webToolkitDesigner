@@ -1,7 +1,13 @@
 @import '~@axa/web-toolkit/scss/style';
 
 @import 'components/Basics/Html';
+@import 'components/Basics/Wrapper';
 @import 'components/Form/Form';
 
 @include basics-html-styles;
+@include basics-wrapper-styles;
 @include Form-styles;
+
+//Fixes to push to WebToolkit
+
+@import 'components/Banner/Banner';

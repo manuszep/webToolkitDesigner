@@ -20,6 +20,7 @@
           { link: '/Alert', label: 'Alert' },
           { link: '/Button', label: 'Button' },
           { link: '/TableOfContent', label: 'Table of content' },
+          { link: '/Banner', label: 'Banner' },
           { link: '/Form/Radio', label: 'Form Radio' },
           { link: '/Form/Checkbox', label: 'Form Checkbox' },
           { link: '/Form/Select', label: 'Form Select' },

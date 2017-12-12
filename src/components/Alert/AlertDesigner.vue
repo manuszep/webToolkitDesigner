@@ -24,7 +24,7 @@
                 placeholder="https://www.axa.com"
                 id="btnlink"></Row>
         </form>
-        <DesignerDemo>
+        <DesignerDemo fullWidth>
             <Alert
                     :buttonText="BTN_TEXT"
                     :buttonLink="BTN_LINK"
