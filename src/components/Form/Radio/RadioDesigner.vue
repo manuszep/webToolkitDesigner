@@ -3,20 +3,26 @@
         <form class="form">
             <h1 class="form-title">Make a radio input</h1>
 
-            <div class="form-group" role="group">
-                <label>Labels, Values (1 / line, comma separated)</label>
-                <textarea v-model="RADIO_LABELS" class="form-control textarea-large" placeholder="ex: Button label, 0"></textarea>
-            </div>
+            <Row
+                type="textarea"
+                className="textarea-large"
+                label="Labels, Values (1 / line, comma separated)"
+                v-model="RADIO_LABELS"
+                placeholder="ex: Button label, 0"
+                id="valueLabels"></Row>
 
-            <div class="form-group" >
-                <label for="radioName">Field name</label>
-                <input v-model="RADIO_NAME" type="text" id="radioName" placeholder="ex: FLD_RADIO" class="form-control" />
-            </div>
+            <Row
+                type="text"
+                label="Field name"
+                v-model="RADIO_NAME"
+                placeholder="ex: FLD_RADIO"
+                id="radioName"></Row>
 
-            <div class="form-group" role="group">
-                <label>Style</label>
-                <Radio v-model="RADIO_STYLE" :options="[{value: '0', label: 'Normal'}, {value: '1', label:'Minimal'}]"/>
-            </div>
+            <Row
+                type="radio"
+                label="Style"
+                v-model="RADIO_STYLE"
+                :options="[{value: '0', label: 'Normal'}, {value: '1', label:'Minimal'}]"></Row>
         </form>
 
         <DesignerDemo>
@@ -27,13 +33,15 @@
 
 <script>
   import DesignerDemo from '@/components/DesignerDemo/DesignerDemo';
+  import Row from '@/components/Form/Row/Row';
   import Radio from '@/components/Form/Radio/Radio';
 
   export default {
     name: 'RadioDesigner',
     components: {
-      DesignerDemo: DesignerDemo,
+      Row: Row,
       Radio: Radio,
+      DesignerDemo: DesignerDemo,
     },
     data() {
       return {

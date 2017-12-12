@@ -3,41 +3,26 @@
         <form class="form">
             <h1 class="form-title">Make an alert</h1>
 
-            <div class="form-group" role="group">
-                <label>My alert is</label>
-                <div class="custom-radio1-wrapper">
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="ALERT_TYPE" type="radio" class="custom-control-input" value="corporate">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Corporate</span>
-                    </label>
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="ALERT_TYPE" type="radio" class="custom-control-input" value="content">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Content</span>
-                    </label>
-                    <label class="custom-control custom-radio radio1">
-                        <input v-model="ALERT_TYPE" type="radio" class="custom-control-input" value="warning">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Warning</span>
-                    </label>
-                </div>
-            </div>
+            <Row
+                type="radio"
+                label="My alert is"
+                v-model="ALERT_TYPE"
+                :options="[{value: 'corporate', label: 'Corporate'}, {value: 'content', label:'Content'}, {value: 'warning', label:'Warning'}]"></Row>
 
-            <div class="form-group" >
-                <label for="text" >Write some poetry for the user</label>
-                <textarea v-model="ALERT_TEXT" id="text" placeholder="Roses are red, violets are blue, this website uses cookies to provide you some goodies" class="form-control textarea-large"></textarea>
-            </div>
+            <Row
+                type="textarea"
+                className="textarea-large"
+                label="Write some poetry for the user"
+                v-model="ALERT_TEXT"
+                placeholder="Roses are red, violets are blue, this website uses cookies to provide you some goodies"
+                id="text"></Row>
 
-            <div class="form-group" >
-                <label for="btntext" >Add a button with this label</label>
-                <input v-model="BTN_TEXT" type="text" id="btntext" placeholder="I get it !" class="form-control" />
-            </div>
-
-            <div class="form-group" >
-                <label for="btnlink" >Add a link to that button</label>
-                <input v-model="BTN_LINK" type="text" id="btnlink" placeholder="https://www.axa.com" class="form-control" />
-            </div>
+            <Row
+                type="text"
+                label="Add a link to that button"
+                v-model="BTN_LINK"
+                placeholder="https://www.axa.com"
+                id="btnlink"></Row>
         </form>
         <DesignerDemo>
             <Alert
@@ -50,11 +35,13 @@
 
 <script>
   import DesignerDemo from '@/components/DesignerDemo/DesignerDemo';
+  import Row from '@/components/Form/Row/Row';
   import Alert from '@/components/Alert/Alert';
 
   export default {
     name: 'AlertDesigner',
     components: {
+      Row: Row,
       Alert: Alert,
       DesignerDemo: DesignerDemo,
     },

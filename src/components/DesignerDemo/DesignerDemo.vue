@@ -15,7 +15,7 @@
   import Pretty from 'pretty';
 
   export default {
-    name: 'HelloWorld',
+    name: 'DesignerDemo',
     props: {
       neg: {
         type: Boolean,

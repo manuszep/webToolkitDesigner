@@ -1,10 +1,8 @@
 <template>
-    <div class="custom-radio1-wrapper">
-        <label v-for="(data, index) in options" :class="labelCls">
-            <input v-bind:checked="value === data.value" :name="name" type="radio" :class="inputCls" :value="data.value" @change="updateInput(data.value)">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">{{data.label}}</span>
-        </label>
+    <div class="custom-select-group">
+        <select v-bind:value="value" :name="name" :class="inputCls" @change="updateInput($event.target.value)">
+            <option v-for="(data, index) in options" :value="data.value" :disabled="data.disabled" :hidden="data.hidden">{{data.label}}</option>
+        </select>
     </div>
 </template>
 
@@ -12,7 +10,7 @@
   import Classnames from 'classnames';
 
   export default {
-    name: 'Radio',
+    name: 'SelectList',
     props: {
       options: {
         type: Array,
@@ -22,10 +20,6 @@
         required: false,
       },
       name: {
-        type: String,
-        required: false,
-      },
-      minimal: {
         type: String,
         required: false,
       },
@@ -39,12 +33,8 @@
       },
     },
     computed: {
-      labelCls() {
-        const custom = (this.minimal === '1') ? 'radio2' : 'radio1';
-        return Classnames('custom-control custom-radio', custom);
-      },
       inputCls() {
-        return Classnames('custom-control-input', { 'form-control-danger': this.hasError() });
+        return Classnames('custom-select', { 'form-control-danger': this.hasError() });
       },
     },
     methods: {

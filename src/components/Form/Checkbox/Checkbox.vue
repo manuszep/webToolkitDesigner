@@ -1,7 +1,7 @@
 <template>
-    <div class="custom-radio1-wrapper">
-        <label v-for="(data, index) in options" :class="labelCls">
-            <input v-bind:checked="value === data.value" :name="name" type="radio" :class="inputCls" :value="data.value" @change="updateInput(data.value)">
+    <div>
+        <label v-for="(data, index) in options" class="custom-control custom-checkbox">
+            <input v-bind:value="value[data.key]" :name="data.name" type="checkbox" :class="inputCls" @change="updateInput(data.key, $event.target.checked)" />
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">{{data.label}}</span>
         </label>
@@ -12,7 +12,7 @@
   import Classnames from 'classnames';
 
   export default {
-    name: 'Radio',
+    name: 'Checkbox',
     props: {
       options: {
         type: Array,
@@ -22,10 +22,6 @@
         required: false,
       },
       name: {
-        type: String,
-        required: false,
-      },
-      minimal: {
         type: String,
         required: false,
       },
@@ -39,17 +35,15 @@
       },
     },
     computed: {
-      labelCls() {
-        const custom = (this.minimal === '1') ? 'radio2' : 'radio1';
-        return Classnames('custom-control custom-radio', custom);
-      },
       inputCls() {
         return Classnames('custom-control-input', { 'form-control-danger': this.hasError() });
       },
     },
     methods: {
-      updateInput(val) {
-        this.$emit('input', val);
+      updateInput(key, val) {
+        const newValue = JSON.parse(JSON.stringify(this.value)); // Clone data
+        newValue[key] = val;
+        this.$emit('input', newValue);
       },
       hasError() {
         return (this.error || this.parentHasError());

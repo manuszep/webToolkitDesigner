@@ -10,7 +10,7 @@
   import ClassNames from 'classnames';
 
   export default {
-    name: 'Btn',
+    name: 'Button',
     props: {
       button: {
         type: Boolean,

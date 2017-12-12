@@ -3,15 +3,20 @@
         <form class="form">
             <h1 class="form-title">Make a radio input</h1>
 
-            <div class="form-group" >
-                <label for="tocTitle">Title</label>
-                <input v-model="TOC_TITLE" type="text" id="tocTitle" placeholder="ex: List of sections" class="form-control" />
-            </div>
+            <Row
+                type="text"
+                label="Title"
+                v-model="TOC_TITLE"
+                placeholder="ex: List of sections"
+                id="tocTitle"></Row>
 
-            <div class="form-group" role="group">
-                <label>Label, link list (1 / line, comma separated)</label>
-                <textarea v-model="LINKS" class="form-control textarea-large" placeholder="ex: #link_value, Display label"></textarea>
-            </div>
+            <Row
+                type="textarea"
+                className="textarea-large"
+                label="Label, link list (1 / line, comma separated)"
+                v-model="LINKS"
+                placeholder="ex: #link_value, Display label"
+                id="links"></Row>
         </form>
 
         <DesignerDemo>
@@ -22,11 +27,13 @@
 
 <script>
   import DesignerDemo from '@/components/DesignerDemo/DesignerDemo';
+  import Row from '@/components/Form/Row/Row';
   import TableOfContent from '@/components/TableOfContent/TableOfContent';
 
   export default {
     name: 'TableOfContentDesigner',
     components: {
+      Row: Row,
       DesignerDemo: DesignerDemo,
       TableOfContent: TableOfContent,
     },
