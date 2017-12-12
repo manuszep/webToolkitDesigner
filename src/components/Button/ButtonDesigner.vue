@@ -25,7 +25,7 @@
                 type="checkbox"
                 label="How nice would it be to add an icon ?"
                 v-model="BTN_ICON_GROUP"
-                :options="[{key: 'BTN_ARROW', label: 'That would be awesome !'}, {key: 'BTN_SPLIT', label: 'Make it stand out'}]"></Row>
+                :options="[{name: 'BTN_ARROW', label: 'That would be awesome !'}, {name: 'BTN_SPLIT', label: 'Make it stand out'}]"></Row>
 
             <Row
                 type="select"

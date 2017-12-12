@@ -1,7 +1,7 @@
 <template>
     <div>
         <label v-for="(data, index) in options" class="custom-control custom-checkbox">
-            <input v-bind:value="value[data.key]" :name="data.name" type="checkbox" :class="inputCls" @change="updateInput(data.key, $event.target.checked)" />
+            <input v-bind:checked="getValue(data.name)" :name="data.name" type="checkbox" :class="inputCls" @change="updateInput(data.name, $event.target.checked)" />
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">{{data.label}}</span>
         </label>
@@ -21,10 +21,6 @@
       value: {
         required: false,
       },
-      name: {
-        type: String,
-        required: false,
-      },
       className: {
         type: String,
         required: false,
@@ -41,15 +37,22 @@
     },
     methods: {
       updateInput(key, val) {
+        if (typeof this.value === 'undefined') return val;
         const newValue = JSON.parse(JSON.stringify(this.value)); // Clone data
         newValue[key] = val;
         this.$emit('input', newValue);
+
+        return newValue;
       },
       hasError() {
         return (this.error || this.parentHasError());
       },
       parentHasError() {
         return (typeof this.$parent !== 'undefined' && typeof this.$parent.hasError !== 'undefined' && this.$parent.hasError());
+      },
+      getValue(name) {
+        if (typeof this.value === 'undefined') return '';
+        return (typeof this.value[name] !== 'undefined') ? this.value[name] : '';
       },
     },
   };
